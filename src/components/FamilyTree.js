@@ -99,13 +99,54 @@ const FamilyTree = () => {
           </p>
         ) : (
           <div className="members-container">
-            {familyMembers.map(member => (
-              <FamilyMember 
-                key={member.id} 
-                member={member} 
-                onDelete={deleteFamilyMember} 
-              />
-            ))}
+            {familyMembers.map((member, index) => {
+              // Calculate position around the tree
+              // Start at -90 degrees (top) and go clockwise
+              const startAngle = -90;
+              const angle = (startAngle + index * (360 / familyMembers.length)) * (Math.PI / 180);
+              
+              // Distribute cards based on number of members
+              // More members = larger radius to avoid overlap
+              const minRadius = 35; // Minimum radius as percentage of container
+              
+              // Adjust radius based on number of members to prevent overlap
+              let baseRadius;
+              if (familyMembers.length <= 3) {
+                baseRadius = minRadius;
+              } else if (familyMembers.length <= 6) {
+                baseRadius = minRadius + 5;
+              } else {
+                baseRadius = minRadius + 10;
+              }
+              
+              // Add some variation to the radius to make it look more natural
+              // Use the index to create a pattern (0, 1, 2, 0, 1, 2, ...)
+              const radiusVariation = [0, -3, 3];
+              const variationIndex = index % radiusVariation.length;
+              const radius = baseRadius + radiusVariation[variationIndex];
+              
+              // Calculate x and y coordinates (center is 50%, 50%)
+              const x = 50 + (Math.cos(angle) * radius); // Convert to percentage of container
+              const y = 50 + (Math.sin(angle) * radius); // Convert to percentage of container
+              
+              // Create a style object for positioning
+              const style = {
+                position: 'absolute',
+                left: `${x}%`,
+                top: `${y}%`,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 2
+              };
+              
+              return (
+                <div key={member.id} className="member-position" style={style}>
+                  <FamilyMember 
+                    member={member} 
+                    onDelete={deleteFamilyMember} 
+                  />
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
