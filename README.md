@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Family Tree Maker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application for creating and managing a family tree. Users can add family members with their details, view them on a tree background, and export the family tree as a PDF.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add family members with name, profession, age, family relation, and gender
+- Display family members on a tree background
+- Delete family members
+- Export family tree as PDF
+- Data persistence using local storage
+- Responsive design
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js and npm installed on your machine
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm start
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
-### `npm run build`
+## Deployment to Netlify
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Option 1: Deploy via Netlify UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Create a production build:
+   ```
+   npm run build
+   ```
+2. Create an account on [Netlify](https://www.netlify.com/) if you don't have one
+3. Go to the Netlify dashboard and click "New site from Git"
+4. Connect your Git repository (GitHub, GitLab, or Bitbucket)
+5. Select the repository
+6. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `build`
+7. Click "Deploy site"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Option 2: Deploy via Drag and Drop
 
-### `npm run eject`
+1. Create a production build:
+   ```
+   npm run build
+   ```
+2. Create an account on [Netlify](https://www.netlify.com/) if you don't have one
+3. Go to the Netlify dashboard
+4. Drag and drop the `build` folder onto the Netlify dashboard
+5. Your site will be deployed instantly
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Option 3: Deploy via Netlify CLI
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Install Netlify CLI:
+   ```
+   npm install netlify-cli -g
+   ```
+2. Login to Netlify:
+   ```
+   netlify login
+   ```
+3. Initialize a new Netlify site:
+   ```
+   netlify init
+   ```
+4. Follow the prompts to set up your site
+5. Deploy your site:
+   ```
+   netlify deploy --prod
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Built With
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [jsPDF](https://github.com/MrRio/jsPDF) - Client-side JavaScript PDF generation
+- [html2canvas](https://html2canvas.hertzen.com/) - Screenshots with JavaScript
+- [React Icons](https://react-icons.github.io/react-icons/) - Popular icons for React projects
